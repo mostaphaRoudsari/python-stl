@@ -25,6 +25,13 @@ class Solid(object):
         self.facets.append(Facet(*args, **kwargs))
 
     @property
+    def normals(self):
+        """
+        Get facet normals.
+        """
+        return tuple(facet.normal for facet in self.facets)
+    
+    @property
     def surface_area(self):
         """
         The sum of the areas of all facets in the object.
@@ -38,9 +45,9 @@ class Solid(object):
     @property
     def vertices(self):
         """
-        Get list of unique vertices.
+        Unique vertices for all facets.
         """
-        return set(ver for facet in self.facets for ver in facet.vertices)
+        return tuple(set(ver for facet in self.facets for ver in facet.vertices))
     
     def write_binary(self, file):
         """
