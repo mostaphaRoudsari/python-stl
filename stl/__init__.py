@@ -42,7 +42,7 @@ def read_ascii_string(data):
     the provided string in a :py:class:`StringIO.StringIO` object.
     """
     from StringIO import StringIO
-    return parse_ascii_file(StringIO(data))
+    return read_ascii_file(StringIO(data))
 
 
 def read_binary_string(data):
@@ -54,4 +54,4 @@ def read_binary_string(data):
     the provided string in a :py:class:`StringIO.StringIO` object.
     """
     from StringIO import StringIO
-    return parse_binary_file(StringIO(data))
+    return read_binary_file(StringIO(data))
