@@ -35,6 +35,13 @@ class Solid(object):
             0.0,
         )
 
+    @property
+    def vertices(self):
+        """
+        Get list of unique vertices.
+        """
+        return set(ver for facet in self.facets for ver in facet.vertices)
+    
     def write_binary(self, file):
         """
         Write this object to a file in STL *binary* format.
